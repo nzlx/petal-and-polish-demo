@@ -2,6 +2,8 @@
 
 A one-page website for a fictional boutique nail salon in Scottsdale, Arizona, built as a portfolio piece.
 
+**Live site:** https://petal-and-polish-demo.vercel.app
+
 > **This is a demo.** Petal & Polish Nail Studio is not a real business. The address, phone number (a reserved 555-01xx number), nail artists and reviews are made up. The online booking runs entirely in the browser: no appointment is created and nothing you type is sent anywhere.
 
 ## Highlights
@@ -28,6 +30,8 @@ A one-page website for a fictional boutique nail salon in Scottsdale, Arizona, b
 Requires Node.js 20 or newer.
 
 ```bash
+git clone https://github.com/nzlx/petal-and-polish-demo.git
+cd petal-and-polish-demo
 npm install
 npm run dev
 ```
