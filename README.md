@@ -24,6 +24,7 @@ A one-page website for a fictional boutique nail salon in Scottsdale, Arizona, b
 - [Tailwind CSS 4](https://tailwindcss.com)
 - [Framer Motion](https://motion.dev) for animations, [Lenis](https://lenis.darkroom.engineering) for smooth scrolling
 - `next/image` for responsive, optimized images; self-hosted fonts (Cormorant Garamond, DM Sans)
+- Deployed on [Vercel](https://vercel.com); every push to `main` redeploys the live site
 
 ## Run locally
 
