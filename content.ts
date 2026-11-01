@@ -1,7 +1,8 @@
 /**
  * All site copy lives here: texts, prices, artists, reviews, hours and contacts.
- * Petal & Polish Nail Studio is a fictional business. The address and phone number are
- * made up (555-01xx numbers are reserved for fiction).
+ * Petal & Polish Nail Studio is a fictional business. The street names (Petalbrook Lane, Rosemallow Way)
+ * are invented so the site never points at a real building, and the phone number is made up
+ * (555-01xx numbers are reserved for fiction).
  */
 
 export const site = {
@@ -19,7 +20,7 @@ export const contacts = {
   phoneHref: "tel:+14805550176",
   email: "hello@petalandpolish.example",
   address: {
-    street: "4217 N Marshall Way, Suite 105",
+    street: "1825 E Petalbrook Lane, Suite 105",
     city: "Scottsdale",
     state: "AZ",
     zip: "85251",
@@ -554,6 +555,6 @@ export const hygiene = {
 export const visit = {
   eyebrow: "Location & Hours",
   title: "Visit the studio",
-  parking: "Free parking behind the building. We're two blocks from the Scottsdale Waterfront.",
+  parking: "Free parking behind the building, plus easy street parking on Rosemallow Way.",
   walkIns: "Walk-ins welcome when we have an open seat. Booking ahead guarantees your time.",
 };

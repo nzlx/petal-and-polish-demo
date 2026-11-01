@@ -1,6 +1,6 @@
 import { contacts, site } from "@/content";
 
-/** Illustrative map: soft pastel streets of an Old Town grid, no real location data. */
+/** Illustrative map: soft pastel streets with invented names, no real location data. */
 export default function MapPlaceholder() {
   return (
     <figure className="card relative overflow-hidden rounded-[32px] p-0">
@@ -16,7 +16,7 @@ export default function MapPlaceholder() {
           </radialGradient>
         </defs>
         <rect width="480" height="420" fill="url(#blocks)" />
-        {/* Canal */}
+        {/* Wash */}
         <path d="M-10 300C80 280 140 330 230 318S380 250 490 262" fill="none" stroke="#d6e2e3" strokeWidth="22" strokeLinecap="round" />
         <path d="M-10 300C80 280 140 330 230 318S380 250 490 262" fill="none" stroke="#c3d5d7" strokeWidth="1.5" />
         {/* Parks */}
@@ -30,12 +30,12 @@ export default function MapPlaceholder() {
         <path d="M238 -10V430" stroke="#fffdfa" strokeWidth="16" />
         <path d="M128 -10V430M-10 84H490M360 170V430" stroke="#fffdfa" strokeWidth="8" />
         <g fill="#9a8584" fontFamily="system-ui, sans-serif" fontSize="10.5" letterSpacing="1.6" fontWeight="600">
-          <text x="18" y="186">E CAMELBACK RD</text>
-          <text x="252" y="118" transform="rotate(-90 252 118)">
-            N MARSHALL WAY
+          <text x="18" y="186">E PETALBROOK LN</text>
+          <text x="252" y="130" letterSpacing="1" transform="rotate(-90 252 130)">
+            N ROSEMALLOW WAY
           </text>
           <text x="300" y="248" fill="#8aa3a6">
-            ARIZONA CANAL
+            PRIMROSE WASH
           </text>
           <text x="322" y="176">OLD TOWN</text>
         </g>
