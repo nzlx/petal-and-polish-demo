@@ -1,0 +1,278 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fbf6f1;
+  --color-milk: #fffdfa;
+  --color-blush: #f6e7e3;
+  --color-powder: #edd3cf;
+  --color-rose: #d9a3a3;
+  --color-rose-deep: #a2545f;
+  --color-rose-dark: #87424e;
+  --color-sage: #b9c6b1;
+  --color-sage-light: #e8ede3;
+  --color-sage-deep: #56705a;
+  --color-gold: #c4a46a;
+  --color-gold-deep: #826231;
+  --color-ink: #3d2c2e;
+  --color-muted: #7b6668;
+  --color-line: #ecdfd8;
+  --color-danger: #b3261e;
+  --color-ok: #2f7a4a;
+
+  --font-serif: var(--font-cormorant), "Cormorant", Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-dm-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+:root {
+  --header-h: 68px;
+  color-scheme: light;
+}
+
+html {
+  background: var(--color-cream);
+  overflow-x: clip;
+  scroll-padding-top: var(--header-h);
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-powder);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-rose-deep);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+@layer components {
+  /* Milk-white card with a soft, warm shadow. */
+  .card {
+    background: var(--color-milk);
+    border: 1px solid var(--color-line);
+    box-shadow:
+      0 1px 0 rgb(255 255 255 / 0.9) inset,
+      0 24px 48px -32px rgb(122 74 70 / 0.28);
+  }
+
+  /* Soft blush wash used behind alternating sections. */
+  .wash {
+    background:
+      radial-gradient(60% 50% at 0% 0%, rgb(237 211 207 / 0.55), transparent 70%),
+      radial-gradient(50% 45% at 100% 100%, rgb(232 237 227 / 0.8), transparent 70%),
+      var(--color-blush);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-gold-deep);
+    font-weight: 600;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 1.6rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-gold));
+  }
+  .eyebrow-center::after {
+    content: "";
+    width: 1.6rem;
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-gold), transparent);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0 1.6rem;
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition:
+      background-color 0.3s var(--ease-soft),
+      color 0.3s var(--ease-soft),
+      border-color 0.3s var(--ease-soft),
+      box-shadow 0.3s var(--ease-soft),
+      transform 0.3s var(--ease-out-expo),
+      opacity 0.2s;
+  }
+  .btn:active {
+    transform: scale(0.98);
+  }
+  .btn-rose {
+    background: var(--color-rose-deep);
+    color: #fff;
+    box-shadow: 0 14px 30px -14px rgb(162 84 95 / 0.65);
+  }
+  .btn-rose:hover {
+    background: var(--color-rose-dark);
+    box-shadow: 0 18px 34px -14px rgb(162 84 95 / 0.75);
+  }
+  .btn-outline {
+    border: 1px solid rgb(61 44 46 / 0.2);
+    color: var(--color-ink);
+    background: rgb(255 253 250 / 0.6);
+  }
+  .btn-outline:hover {
+    border-color: var(--color-rose-deep);
+    color: var(--color-rose-deep);
+    background: var(--color-milk);
+  }
+  .btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .rule-gold {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgb(196 164 106 / 0.7), transparent);
+  }
+
+  .link {
+    color: var(--color-rose-deep);
+    text-underline-offset: 4px;
+    font-weight: 500;
+  }
+  .link:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Hero headline: words drift up one after another. Pure CSS so it starts on first paint. */
+@keyframes word-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.35em);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+.word-in {
+  display: inline-block;
+  opacity: 0;
+  animation: word-in 0.9s var(--ease-out-expo) forwards;
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.fade-up {
+  opacity: 0;
+  animation: fade-up 1s var(--ease-out-expo) forwards;
+}
+
+/* The arched photo frame softly reveals from the bottom. */
+@keyframes arch-in {
+  from {
+    clip-path: inset(18% 0 0 0 round 999px 999px 0 0);
+    transform: scale(1.04);
+  }
+  to {
+    clip-path: inset(0 0 0 0 round 999px 999px 0 0);
+    transform: none;
+  }
+}
+.arch-in {
+  animation: arch-in 1.4s var(--ease-out-expo) both;
+}
+
+/* Gentle floating for the decorative petals and badges. */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Gallery bento: rows are sized from the column width (container query units), so spanning tiles
+   always line up with regular ones. Phones/tablets use 4:5 cells, desktop a slightly squarer 1:1.1. */
+.bento {
+  grid-auto-flow: row dense;
+  grid-auto-rows: calc((100cqw - 0.75rem) / 2 * 1.25);
+}
+@media (min-width: 40rem) {
+  .bento {
+    grid-auto-rows: calc((100cqw - 2rem) / 3 * 1.25);
+  }
+}
+@media (min-width: 64rem) {
+  .bento {
+    grid-auto-rows: calc((100cqw - 3rem) / 4 * 1.1);
+  }
+}
+
+@keyframes pin-pulse {
+  from {
+    transform: scale(0.35);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+.pin-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pin-pulse 2.8s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
